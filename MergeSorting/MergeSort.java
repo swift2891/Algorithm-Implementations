@@ -1,4 +1,3 @@
-package mergesort;
 import java.util.Arrays;
 import java.util.Scanner;
 /**
@@ -73,9 +72,10 @@ public class MergeSort {
 
     //Print the given array:
     public static void printArray(int[] targetArray){
-        for(int l=0;l<targetArray.length;l++){
-	    System.out.print(targetArray[l]);  
- 	} 
+        System.out.print("[ ");
+        for(int l=0;l<targetArray.length;l++)
+    	    System.out.print(targetArray[l] + " ");  
+        System.out.print("]");
     }
         
         
@@ -94,6 +94,8 @@ public class MergeSort {
 		printArray(inputArray);	 	
 
  	 	finalSortedArray = sort(inputArray,inputArray.length);
-//                printArray(finalSortedArray);
+        System.out.println('\n');
+        System.out.println('\n'+"The Final Merged Array is: ");
+        printArray(finalSortedArray);
 	}
 }
