@@ -22,7 +22,7 @@ public class MergeSort {
                 System.out.println("");
                 System.out.println("Left Sub Array: ");
                 printArray(leftSubArray);
-		rightSubArray = Arrays.copyOfRange(A, mid, length);
+				rightSubArray = Arrays.copyOfRange(A, mid, length);
                 System.out.println("");
                 System.out.println("Right Sub Array: ");
                 printArray(rightSubArray);    
