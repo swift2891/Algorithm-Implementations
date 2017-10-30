@@ -63,7 +63,7 @@ public class FindFirstRecur{
             else    
                 System.out.println("MergedArray is of desired size.No loss.");
             System.out.println("");
-            System.out.println("The merged arrary: ");
+            // System.out.println("The merged arrary: ");
             // printArray(mergedArrays);
             return mergedArrays;
     }
@@ -78,14 +78,31 @@ public class FindFirstRecur{
 
 
     public static int binarySearch(int[] sortedArray, int key){
+    	System.out.println("\n"+"Searching for: "+key+" in array: "+"\n");
+    	printArray(sortedArray);
     	int mid=0;
-    	mid = sortedArray.length/2;
-    	if(sortedArray[mid] == key)
+    	if(sortedArray.length<2){
+    		if(sortedArray[mid] == key){
+    		System.out.println("Success");
     		return sortedArray[mid];
+    		}
+    		else{
+    			return 0;
+    		}	
+    	}
+    	mid = sortedArray.length/2;
+    	if(sortedArray[mid] == key){
+    		System.out.println("Success");
+    		return sortedArray[mid];
+    	}
     	else if(sortedArray[mid]>key){
+	 	 	System.out.println("\n"+"Doing BS on Left subarray: "+"\n");
+	 	 	printArray(Arrays.copyOfRange(sortedArray,0,mid));
     		return binarySearch(Arrays.copyOfRange(sortedArray,0,mid),key);
     	}
     	else{
+	 	 	System.out.println("\n"+"Doing BS on Right subarray: "+"\n");
+	 	 	printArray(Arrays.copyOfRange(sortedArray,mid,sortedArray.length));
     		return binarySearch(Arrays.copyOfRange(sortedArray,mid,sortedArray.length),key);
     	}
     }  
@@ -109,11 +126,17 @@ public class FindFirstRecur{
         System.out.println('\n'+"The Final Merged Array is: ");
         printArray(finalSortedArray);
 
-        int recurringElement='\0'; int[] subarray;
+        int recurringElement=0; 
+        int[] subarray = new int[finalSortedArray.length];
         for(int j=0;j<finalSortedArray.length-1;j++){
         	subarray = Arrays.copyOfRange(finalSortedArray,j+1,finalSortedArray.length);
+        	System.out.println("The subarray is: "+"\n");	
+        	printArray(subarray);
         	recurringElement = binarySearch(subarray,finalSortedArray[j]);
-
+        	if(recurringElement == 0)
+        		continue;
+        	else
+        		break;
         }
 
  	 	System.out.println("The recurring element is: " + recurringElement);
