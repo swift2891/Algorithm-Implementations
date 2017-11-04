@@ -1,3 +1,12 @@
+/*
+**Solution for below problem
+https://leetcode.com/problems/k-diff-pairs-in-an-array/description/
+
+Finding absolute K-differences in an array.
+*/
+/*
+**author: Vignesh
+*/
 import java.util.Arrays;
 import java.util.Collections;
 import java.lang.*;
